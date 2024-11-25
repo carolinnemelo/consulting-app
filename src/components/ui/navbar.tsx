@@ -1,14 +1,9 @@
 'use client'
 
-import * as React from "react"
 import Link from "next/link"
 import { Menu } from 'lucide-react'
-import { Button } from "@/components/shad/button"
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/shad/sheet"
+import { Button, Sheet, SheetContent, SheetTrigger } from "../shad";
+import { useState } from "react";
 
 const NavItems = [
   { name: "Home", href: "/" },
@@ -18,7 +13,7 @@ const NavItems = [
 ]
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="border-b">
