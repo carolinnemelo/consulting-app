@@ -5,5 +5,5 @@ type Props = {
 }
 
 export function Main({children}: Props) {
-  return <main className="container mx-auto h-screen flex items-center justify-center">{children}</main>
+  return <main className="container mx-auto flex items-center justify-center">{children}</main>
 }
