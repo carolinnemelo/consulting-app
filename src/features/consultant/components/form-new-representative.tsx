@@ -6,13 +6,13 @@ import { Button, Input } from "@/components";
 
 export function FormCreateNewConsultant() {
   const initialState = { message: null, errors: {} };
-  const [state, formAction] = useActionState(formAction, initialState);
-  
+  // const [state, formAction] = useActionState(formAction, initialState);
+
   return (
-    <form action={formAction}>
+    <form >
       <Input typeOfInput="text" label="Name" nameOfInput="consultantName" />
       <Input typeOfInput="email" label="Email" nameOfInput="email" />
-      <Button label="Create Representative" type="submit" />
+      <Button label="Save" type="submit" />
     </form>
   );
 }
