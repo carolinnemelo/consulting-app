@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **Big Picture**
 
-## Getting Started
+## **Core Features**
 
-First, run the development server:
+### **Consultant Page**
+- Create a consultant profile with the following fields:
+  - Name
+  - Email
+  - Skills
+  - Experience
+- View a dynamically generated CV preview.
+- Submit updates for admin review.
+- Track profile status: Pending, Approved, or Rejected.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### **Admin Dashboard**
+- View a list of consultant profiles:
+  - Pending approval.
+  - Approved profiles.
+- Approve or reject submitted profiles.
+- Notify consultants about profile status changes (e.g., Approved or Rejected).
+- Track statistics:
+  - Total consultants.
+  - Approved/rejected percentages.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## **Tables**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Consultants**
+- Stores the finalized, approved consultant profiles.
+- **Fields**:
+  - `Id`: Unique identifier.
+  - `Name`: Consultant's name.
+  - `Email`: Consultant's email.
+  - `Skills`: List of skills.
+  - `Experience`: Consultant's professional experience.
+  - `Status`: Approved.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### **Update Consultant**
+- Stores profiles awaiting admin review or rejected profiles.
+- **Fields**:
+  - `Id`: Unique identifier.
+  - `Consultant_Id`: Reference to the consultant.
+  - `Profile_Details`: Collected data for profile creation.
+  - `Status`: Pending or Rejected.
