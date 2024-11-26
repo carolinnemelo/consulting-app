@@ -3,10 +3,9 @@
 import { useActionState } from "react";
 import { Button, Input } from "@/components";
 
-
-export function FormCreateNewConsultant() {
+export function FormCreateConsultant() {
   const initialState = { message: null, errors: {} };
-  // const [state, formAction] = useActionState(formAction, initialState);
+  const [state, formAction] = useActionState(createConsultant, initialState);
 
   return (
     <form >
