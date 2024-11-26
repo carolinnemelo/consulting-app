@@ -8,10 +8,14 @@ export function createService() {
     },
 
     async getById(id: number) {
-      return await db
+      const foundConsultant = await db
         .select()
         .from(consultantsTable)
         .where(eq(consultantsTable.id, id));
+      if (foundConsultant.length === 0) {
+        throw new Error("Consultant not found. Please, try another id.");
+      }
+      return foundConsultant[0];
     },
 
     async getConsultantByEmail(email: string) {
@@ -37,7 +41,10 @@ export function createService() {
     },
 
     async update(consultant: ConsultantUpdate) {
-      await db.update(consultantsTable).set({...consultant}).where(eq(consultantsTable.id,consultant.id));
+      await db
+        .update(consultantsTable)
+        .set({ ...consultant })
+        .where(eq(consultantsTable.id, consultant.id));
     },
   };
 }
