@@ -2,7 +2,8 @@
 
 import { useActionState } from "react";
 import { Button, Input } from "@/components";
-import { createConsultant } from "@/features";
+import { createConsultant } from "../actions";
+
 
 
 export function FormCreateConsultant() {

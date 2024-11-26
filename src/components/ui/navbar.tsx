@@ -3,8 +3,8 @@ import { NavMenuItems } from "./nav-items";
 
 const NavItems = [
   { name: "Home", href: "/" },
-  { name: "My profile", href: "/my-profile" },
-  { name: "All consultants", href: "/contact" },
+  { name: "Profile", href: "/my-profile" },
+  { name: "CV", href: "/my-cv" },
 ];
 
 export function Navbar() {
