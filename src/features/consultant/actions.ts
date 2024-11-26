@@ -1,8 +1,9 @@
-"use server"
+"use server";
 
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-import { consultantFeature } from "./instance";
+import { consultantFeature } from ".";
+
 
 const createConsultantSchema = z.object({
   firstName: z.string().trim().min(1, "Can not be empty").trim(),
@@ -19,7 +20,7 @@ export type State = {
   message?: string | null;
 };
 
-export async function createConsultant(prevState: State,formData: FormData) {
+export async function createConsultant(prevState: State, formData: FormData) {
   const validatedFields = createConsultantSchema.safeParse({
     firstName: formData.get("firstName"),
     lastName: formData.get("lastName"),
@@ -31,7 +32,7 @@ export async function createConsultant(prevState: State,formData: FormData) {
       message: "Missing Fields",
     };
   }
-  consultantFeature.service.create({ validatedFields })
+  consultantFeature.service.create(validatedFields.data);
   console.log(validatedFields);
   revalidatePath("/my-profile");
 }
