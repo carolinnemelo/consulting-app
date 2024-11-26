@@ -17,7 +17,7 @@ export type State = {
   message?: string | null;
 };
 
-export async function createNewConsultant(formData: FormData) {
+export async function createConsultant(formData: FormData) {
   const validatedFields = createConsultantSchema.safeParse({
     firstName: formData.get("firstName") as string,
     lastName: formData.get("lastName") as string,
