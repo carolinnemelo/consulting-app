@@ -28,6 +28,12 @@ export function createService() {
     },
 
     async create(consultant: ConsultantInsert) {
+      const existingConsultant = await this.getConsultantByEmail(
+        consultant.email
+      );
+      if (existingConsultant) {
+        throw new Error("Consultant not found. Unable to update.");
+      }
       const { firstName, lastName, email } = consultant;
       await db.insert(consultantsTable).values({ firstName, lastName, email });
     },
