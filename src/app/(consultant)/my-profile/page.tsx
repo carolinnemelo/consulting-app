@@ -1,5 +1,5 @@
 import { Main, ReusableCard } from "@/components";
-import { FormCreateNewConsultant } from "@/features/consultant/components/form-new-representative";
+import { FormCreateNewConsultant } from "@/features/consultant/components/form-create-consultant";
 
 export default function Home() {
   return (
