@@ -1,27 +1,28 @@
 "use server"
 
-import { z } from "zod"
+import { revalidatePath } from "next/cache";
+import { z } from "zod";
 
 const createConsultantSchema = z.object({
-  firstName: z.string().min(1, "Can not be empty"),
-  lastName: z.string().min(1, "Can not be empty"),
-  email: z.string().email("Insert Valid Email"),
+  firstName: z.string().trim().min(1, "Can not be empty").trim(),
+  lastName: z.string().trim().min(1, "Can not be empty"),
+  email: z.string().trim().email("Insert Valid Email"),
 });
 
 export type State = {
-  errors: {
+  errors?: {
     firstName?: string[] | undefined;
-    choice1?: string[] | undefined;
-    choice2?: string[] | undefined;
+    lastName?: string[] | undefined;
+    email?: string[] | undefined;
   };
   message?: string | null;
 };
 
-export async function createConsultant(formData: FormData) {
+export async function createConsultant(prevState: State,formData: FormData) {
   const validatedFields = createConsultantSchema.safeParse({
-    firstName: formData.get("firstName") as string,
-    lastName: formData.get("lastName") as string,
-    email: formData.get("email") as string,
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
+    email: formData.get("email"),
   });
   if (!validatedFields.success) {
     return {
@@ -29,4 +30,6 @@ export async function createConsultant(formData: FormData) {
       message: "Missing Fields",
     };
   }
+  console.log(validatedFields);
+  revalidatePath("/my-profile");
 }
