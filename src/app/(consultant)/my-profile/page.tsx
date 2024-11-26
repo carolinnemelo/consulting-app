@@ -1,11 +1,11 @@
-import { Main, ReusableCard } from "@/components";
+import { Main, PageTitle, ReusableCard } from "@/components";
 import { FormCreateConsultant } from "@/features";
 
 export default function Home() {
   return (
     <Main>
       <ReusableCard>
-        <h1>My profile</h1>
+        <PageTitle pageTitle="Profile" />
         <FormCreateConsultant />
       </ReusableCard>
     </Main>

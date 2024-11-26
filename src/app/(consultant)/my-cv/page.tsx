@@ -1,4 +1,4 @@
-import { Main, ReusableCard } from "@/components";
+import { Main, PageTitle, ReusableCard } from "@/components";
 import { consultantFeature } from "@/features";
 
 export default async function Home() {
@@ -6,6 +6,7 @@ export default async function Home() {
   return (
     <Main>
       <ReusableCard>
+        <PageTitle pageTitle="Curriculum Vitae" />
       <pre>{JSON.stringify(consultantInfo, null, 2)}</pre>
       </ReusableCard>
     </Main>

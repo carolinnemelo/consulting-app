@@ -4,3 +4,4 @@ export * from "./error-message";
 export * from "./input";
 export * from "./reusable-card";
 export * from "./button";
+export * from "./page-title";
