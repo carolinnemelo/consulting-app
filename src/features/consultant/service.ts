@@ -1,6 +1,7 @@
 import { db, consultantsTable, ConsultantInsert } from "@/db";
 import { eq } from "drizzle-orm";
 
+
 export function createService() {
   return {
     async getAll() {
