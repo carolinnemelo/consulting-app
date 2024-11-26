@@ -10,7 +10,8 @@ export function FormCreateNewConsultant() {
 
   return (
     <form >
-      <Input typeOfInput="text" label="Name" nameOfInput="consultantName" />
+      <Input typeOfInput="text" label="First Name" nameOfInput="firstName" />
+      <Input typeOfInput="text" label="Last Name" nameOfInput="LastName" />
       <Input typeOfInput="email" label="Email" nameOfInput="email" />
       <Button label="Save" type="submit" />
     </form>
