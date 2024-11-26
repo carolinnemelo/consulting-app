@@ -26,7 +26,7 @@ export function createService() {
       if (!foundConsultant) {
         throw new Error("Consultant not found. Please, try another email.");
       }
-      return foundConsultant;
+      return foundConsultant[0];
     },
 
     async create(consultant: ConsultantInsert) {

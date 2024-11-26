@@ -4,13 +4,20 @@ type Props = {
   label: string;
   nameOfInput: string;
   typeOfInput: "text" | "email";
+  value?: string;
 };
 
-export function Input({ label, nameOfInput, typeOfInput }: Props) {
+export function Input({ label, nameOfInput, typeOfInput, value }: Props) {
+  console.log({value})
   return (
     <>
       <Label htmlFor={nameOfInput}>{label}</Label>
-      <InputShad type={typeOfInput} name={nameOfInput} id={nameOfInput} />
+      <InputShad
+        type={typeOfInput}
+        name={nameOfInput}
+        id={nameOfInput}
+        defaultValue={value}
+      />
     </>
   );
 }

@@ -1,8 +1,8 @@
 "use server";
 
+import { consultantFeature } from "@/features";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-import { consultantFeature } from ".";
 
 const createConsultantSchema = z.object({
   firstName: z.string().trim().min(1, "Can not be empty").trim(),

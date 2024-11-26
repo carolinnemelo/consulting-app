@@ -2,23 +2,29 @@
 
 import { useActionState } from "react";
 import { Button, Input } from "@/components";
-import { createConsultant } from "../actions";
-import { consultantFeature } from "../instance";
+import { updateConsultant,consultantFeature } from "@/features";
+import { ConsultantUpdate } from "@/db";
 
 
-const loggedUser = await consultantFeature.service.getConsultantByEmail("carolinnepmelo@gmail.com")
 
-export function FormCreateConsultant() {
-  const initialState = loggedUser[0]
-  const [errorMessages, formAction] = useActionState(updateConsultant, initialState);
+export function FormUpdateConsultant(loggedConsultant: any) {
+  
+  const initialState = {
+    ...loggedConsultant,
+    errorMessage: { message: null, errors: {} },
+  };
+  console.log(initialState)
+  const [state, formAction] = useActionState(
+    updateConsultant,
+    initialState
+  );
 
   return (
-    <form action={formAction}>
-      <Input typeOfInput="text" label="First Name" nameOfInput="firstName" />
-      <Input typeOfInput="text" label="Last Name" nameOfInput="lastName" />
-      <Input typeOfInput="email" label="Email" nameOfInput="email" />
+    <form>
+      <Input typeOfInput="text" label="First Name" nameOfInput="firstName" value={initialState.loggedConsultant.firstName} />
+      <Input typeOfInput="text" label="Last Name" nameOfInput="lastName" value={initialState.loggedConsultant.lastName}/>
+      <Input typeOfInput="email" label="Email" nameOfInput="email" value={initialState.loggedConsultant.email} />
       <Button label="Save" type="submit" />
-      {errorMessages?.errors ? <pre>{JSON.stringify(errorMessages?.errors)}</pre> : ""}
     </form>
   );
 }

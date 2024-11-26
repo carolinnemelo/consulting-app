@@ -1,12 +1,15 @@
 import { Main, PageTitle, ReusableCard } from "@/components";
-import { FormCreateConsultant } from "@/features";
+import { consultantFeature, FormUpdateConsultant } from "@/features";
 
-export default function Home() {
+export default async function Home() {
+  const loggedConsultant = await consultantFeature.service.getConsultantByEmail(
+    "carolinnepmelo@gmail.com"
+  );
   return (
     <Main>
       <ReusableCard>
         <PageTitle pageTitle="Update Profile" />
-        <FormCreateConsultant />
+        <FormUpdateConsultant loggedConsultant={loggedConsultant}/>
       </ReusableCard>
     </Main>
   );
