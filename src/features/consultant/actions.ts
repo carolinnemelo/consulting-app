@@ -32,7 +32,27 @@ export async function createConsultant(prevState: State, formData: FormData) {
       message: "Missing Fields",
     };
   }
-  consultantFeature.service.create(validatedFields.data);
+  const isConsultantDuplicate = await isEmailDuplicate(
+    validatedFields.data.email
+  );
+
+  if (isConsultantDuplicate) {
+    console.log("Consultant already exists, try again");
+    return;
+  }
+  const newConsultant = validatedFields.data;
+
+  consultantFeature.service.create(newConsultant);
   console.log(validatedFields);
   revalidatePath("/my-profile");
+}
+
+async function isEmailDuplicate(email: string) {
+  const foundConsultant = await consultantFeature.service.getConsultantByEmail(
+    email
+  );
+  if (foundConsultant) {
+    return true;
+  }
+  return false;
 }
