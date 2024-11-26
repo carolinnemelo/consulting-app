@@ -20,9 +20,7 @@ export function createService() {
         .from(consultantsTable)
         .where(eq(consultantsTable.email, email));
       if (!foundConsultant) {
-        const messageConsultantNotFound =
-          "This email does not exist in our database. Please, try again.";
-        return { messageConsultantNotFound };
+        throw new Error("Consultant not found. Please, try another email.");
       }
       return foundConsultant;
     },
@@ -32,7 +30,7 @@ export function createService() {
         consultant.email
       );
       if (existingConsultant) {
-        throw new Error("Consultant not found. Unable to update.");
+        throw new Error("Consultant already exist. Please, try another email.");
       }
       const { firstName, lastName, email } = consultant;
       await db.insert(consultantsTable).values({ firstName, lastName, email });
