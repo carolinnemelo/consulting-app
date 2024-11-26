@@ -2,6 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
+import { consultantFeature } from "./instance";
 
 const createConsultantSchema = z.object({
   firstName: z.string().trim().min(1, "Can not be empty").trim(),
@@ -30,6 +31,7 @@ export async function createConsultant(prevState: State,formData: FormData) {
       message: "Missing Fields",
     };
   }
+  consultantFeature.service.create({ validatedFields })
   console.log(validatedFields);
   revalidatePath("/my-profile");
 }
