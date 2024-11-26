@@ -1,6 +1,5 @@
-import { db, consultantsTable, ConsultantInsert } from "@/db";
+import { db, consultantsTable, ConsultantInsert, ConsultantUpdate } from "@/db";
 import { eq } from "drizzle-orm";
-import { consultantFeature } from "./instance";
 
 export function createService() {
   return {
@@ -23,7 +22,6 @@ export function createService() {
       if (!foundConsultant) {
         const messageConsultantNotFound =
           "This email does not exist in our database. Please, try again.";
-
         return { messageConsultantNotFound };
       }
       return foundConsultant;
@@ -32,6 +30,10 @@ export function createService() {
     async create(consultant: ConsultantInsert) {
       const { firstName, lastName, email } = consultant;
       await db.insert(consultantsTable).values({ firstName, lastName, email });
+    },
+
+    async update(consultant: ConsultantUpdate) {
+      await db.update(consultantsTable).set({...consultant}).where(eq(consultantsTable.id,consultant.id));
     },
   };
 }
