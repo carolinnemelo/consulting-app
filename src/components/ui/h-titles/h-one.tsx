@@ -2,9 +2,9 @@ type Props = {
   children: string
 }
 
-export function HImpact({ children }: Props) {
+export function HOne({ children }: Props) {
   return (
-    <h1 className="text-5xl font-bold align-middle tracking-tight">
+    <h1 className="text-2xl font-bold align-middle tracking-tight">
       {children}
     </h1>
   );
