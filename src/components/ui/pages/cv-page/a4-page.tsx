@@ -24,9 +24,10 @@ export function A4Page() {
           <h2 className="text-sm font-bold uppercase">Technical Skills</h2>
           <AsideTitles />
         </aside>
-        <article className="col-start-2 col-span-3 pr-6 text-justify space-y-3">
-       <ArticleGeneralInfo />
-       <ArticleEducation />
+        <article className="col-start-2 col-span-3 pr-6 space-y-3">
+          <ArticleGeneralInfo />
+          <ArticleEducation />
+          <ArticleExperience />
         </article>
       </div>
     </div>
@@ -51,7 +52,7 @@ export function ArticleGeneralInfo() {
 }
 
 export function AsideTitles() {
-  const asideContent = sheeraData.map((object, index) => {
+  const asideContent = sheeraData.map((object) => {
     if (object.section === "Technical Skills") {
       if (!object.skills) {
         return "";
@@ -66,7 +67,10 @@ export function AsideTitles() {
         });
         return (
           <section>
-            <h3 key={skill.category} className="text-[12px] font-semibold">
+            <h3
+              key={skill.category}
+              className="text-[12px] font-semibold uppercase"
+            >
               {skill.category}
             </h3>
             {content}
@@ -86,15 +90,46 @@ export function ArticleEducation() {
       }
       return object.education.map((degree) => {
         return (
-          <section key={degree.degree} >
-            <h4 key={degree.school} className="text-base capitalize font-extrabold">
+          <section key={"education"}>
+            <h4
+              key={degree.school}
+              className="text-base font-extrabold uppercase"
+            >
               {degree.degree} | {degree.school}
             </h4>
-            <p key={degree.year} className="text-[12px]">
+            <p key={degree.year} className="text-[12px] text-justify">
               {degree.year}
             </p>
-            <p key={degree.details} className="text-[12px] ">
+            <p key={degree.details} className="text-[12px] text-justify ">
               {degree.details}
+            </p>
+          </section>
+        );
+      });
+    }
+  });
+}
+
+export function ArticleExperience() {
+  return sheeraData.map((object) => {
+    if (object.section === "Work Experience") {
+      if (!object.experience) {
+        return "";
+      }
+      return object.experience.map((experience) => {
+        return (
+          <section key={"experience"}>
+            <h4
+              key={experience.title}
+              className="text-base font-extrabold uppercase"
+            >
+              {experience.title} | {experience.company}
+            </h4>
+            <p key={experience.year} className="text-[12px] text-justify">
+              {experience.year}
+            </p>
+            <p key={experience.details} className="text-[12px] text-justify">
+              {experience.details}
             </p>
           </section>
         );
@@ -154,8 +189,17 @@ const sheeraData = [
           "CI/CD Enchantments",
         ],
       },
+      {
+        category: "Social",
+        items: ["github.com/sheera"],
+      },
+      {
+        category: "Languages",
+        items: ["Etherian", "Ancient Runes", "English"],
+      },
     ],
   },
+
   {
     section: "Education",
     education: [
@@ -165,6 +209,20 @@ const sheeraData = [
         year: "2023",
         details:
           "Intensive three-moon training program focused on full stack spell-casting and web development. Emphasis on TDD (Test-Driven Defense), team enchantments, and applied magical coding. Gained deep knowledge of EtherealScript, CastleForge, and hands-on experience with DockerDragon and Moonlight Cloud (SkyRealm).",
+      },
+      {
+        school: "Mystic Academy of Etheria",
+        degree: "Advanced Enchantment & Software Alchemy",
+        year: "2021",
+        details:
+          "Specialized training in combining magical enchantments with software engineering. Focus on advanced spell algorithms, enchantment layering, and security enhancements for magical systems.",
+      },
+      {
+        school: "Etherian University",
+        degree: "Bachelor of Magical Sciences",
+        year: "2018",
+        details:
+          "Four-year program combining foundational magic studies with the basics of software development. Learned to integrate magic with modern technology, focusing on Etherian culture and spell programming.",
       },
     ],
   },
@@ -178,15 +236,20 @@ const sheeraData = [
         details:
           "Assisted in designing protective barriers for Castle Bright Moon and contributed to the magical infrastructure for the new Etherian energy shield. Led team in using technology to enhance the mystical defenses of the castle.",
       },
-    ],
-  },
-  {
-    section: "Additional Information",
-    github: "https://github.com/sheera-of-etheria",
-    languages: [
-      { language: "Etherian", proficiency: "Fluent" },
-      { language: "Ancient Runes", proficiency: "Advanced" },
-      { language: "English", proficiency: "Conversational" },
+      {
+        title: "Spell Integration Specialist",
+        company: "Mystic Forge Co.",
+        year: "2020-2022",
+        details:
+          "Worked on integrating magical spells with modern software systems. Developed scalable solutions for combining traditional spell casting with digital automation. Contributed to major projects involving defense spells and communication enhancements.",
+      },
+      {
+        title: "Junior Enchanter",
+        company: "GlimmerTech Solutions",
+        year: "2019-2020",
+        details:
+          "Collaborated on various enchantment projects involving user interface spells and interactive magical components. Assisted senior enchanters in developing new magic-based features for Etherian devices.",
+      },
     ],
   },
 ];
