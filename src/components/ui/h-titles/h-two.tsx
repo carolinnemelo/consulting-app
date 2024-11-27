@@ -4,7 +4,7 @@ type Props = {
 
 export function HTwo({ children }: Props) {
   return (
-    <h2 className="text-base sm:text-lg md:text-xl font-semibold text-gray-700">
+    <h2 className="mb-8 text-lg text-muted-foreground font-normal lg:text-xl sm:px-16 xl:px-48 dark:text-background">
       {children}
     </h2>
   );

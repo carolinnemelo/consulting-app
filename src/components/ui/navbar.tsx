@@ -2,6 +2,7 @@ import Link from "next/link";
 import { NavMenuItems } from "./nav-items";
 import Image from "next/image";
 import { TitleThree } from "./title-2";
+import { HOne } from "./h-titles";
 
 const NavItems = [
   { name: "Home", href: "/" },
@@ -15,9 +16,9 @@ export function Navbar() {
   return (
     <nav className="border-b">
       <div className="flex h-14 items-center justify-between px-4">
-        <Link href="/" className="flex justify-between align-middle text-lg font-semibold">
+        <Link href="/" className="flex justify-between align-middle text-lg font-semibold gap-2">
           <Image src="/logo.png" height={36} width={35} alt="Logo" />
-          <TitleThree titleThree="ConsultHub" />
+          <HOne>ConsultHub</HOne>
         </Link>
         <div className="hidden sm:flex sm:space-x-2">
           <NavMenuItems navItemsList={NavItems} />
