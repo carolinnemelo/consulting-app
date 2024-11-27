@@ -1,5 +1,6 @@
 import { db, consultantsTable, ConsultantInsert, ConsultantUpdate } from "@/db";
 import { eq } from "drizzle-orm";
+import { date } from "drizzle-orm/mysql-core";
 
 export function createService() {
   return {
@@ -40,11 +41,13 @@ export function createService() {
       await db.insert(consultantsTable).values({ firstName, lastName, email });
     },
 
-    async update(consultant: ConsultantUpdate) {
+    async update({ id, ...consultant }: any) {
+
+      console.log({...consultant})
       await db
         .update(consultantsTable)
-        .set({ ...consultant })
-        .where(eq(consultantsTable.id, consultant.id));
+        .set({ updatedAt: new Date(), ...consultant })
+        .where(eq(consultantsTable.id, id))
     },
   };
 }

@@ -8,7 +8,6 @@ type Props = {
 };
 
 export function Input({ label, nameOfInput, typeOfInput, value }: Props) {
-  console.log({value})
   return (
     <>
       <Label htmlFor={nameOfInput}>{label}</Label>
