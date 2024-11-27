@@ -1,5 +1,4 @@
 import { TitleThree } from "./title-2";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components";
 
 const buttons = {

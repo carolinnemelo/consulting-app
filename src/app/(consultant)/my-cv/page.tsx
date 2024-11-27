@@ -2,7 +2,7 @@ import { Main, PageTitle, ReusableCard } from "@/components";
 import { consultantFeature } from "@/features";
 
 export default async function Home() {
-  const consultantInfo = await consultantFeature.service.getById(4)
+  const consultantInfo = await consultantFeature.service.getConsultantByEmail("linus@pierre.se")
   return (
     <Main>
       <ReusableCard>

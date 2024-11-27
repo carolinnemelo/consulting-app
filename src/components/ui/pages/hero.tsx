@@ -27,8 +27,6 @@ const items = [
 ];
 
 
-
-
 export function Hero() {
   return (
     <section
