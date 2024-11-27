@@ -1,3 +1,4 @@
+import { Ghost } from "lucide-react";
 import { ButtonShad } from "../shad";
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 export function Button({ label, type }: Props) {
   return (
     <div className="flex mt-4">
-      <ButtonShad className="flex-grow" type={type}>
+      <ButtonShad variant="ghost" className="flex-grow" type={type}>
         {label}
       </ButtonShad>
     </div>

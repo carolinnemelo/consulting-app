@@ -5,3 +5,5 @@ export * from "./input";
 export * from "./reusable-card";
 export * from "./button";
 export * from "./page-title";
+export * from "./title-2";
+export * from "./sidebar";
