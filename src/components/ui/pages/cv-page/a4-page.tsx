@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import { HOne, HTwo } from "../../h-titles";
+import Image from "next/image";
+
 
 type Props = {
   children: ReactNode;
@@ -8,23 +9,29 @@ type Props = {
 export function A4Page() {
   return (
     <div className="a4-page">
-      <div className="grid grid-cols-4 grid-rows-10 h-full">
-        <div className="col-start-1 h-full text-start">
-        <h2 className="text-sm font-bold uppercase">Technical Skills</h2>
-        <AsideTitles />
-
+      <div className="grid grid-cols-4 grid-rows-12 h-full gap-3">
+        <div className="bg-primary col-start-1 col-end-5 row-start-1 h-[50px]"></div>
+        <div className="col-start-1 row-start-1 mt-16 h-full text-start px-4 space-y-3">
+          <Image
+            src="/she-ra.png"
+            height={170}
+            width={170}
+            alt="Logo"
+            className="justify-self-center"
+          />
+          <h2 className="text-sm font-bold uppercase">Technical Skills</h2>
+          <AsideTitles />
         </div>
         <div className="col-start-2 col-span-3">
-
-        <h1 className="text-3xl font-bold mb-4">A4 Page Title</h1>
-        <p className="text-base mb-2">
-          This is a sample content of the A4 page. You can add whatever content
-          you need here.
-        </p>
-        <p className="text-base">
-          Make sure everything fits well within the constraints of an A4 size
-          paper.
-        </p>
+          <h1 className="text-3xl font-bold mb-4">A4 Page Title</h1>
+          <p className="text-base mb-2">
+            This is a sample content of the A4 page. You can add whatever
+            content you need here.
+          </p>
+          <p className="text-base">
+            Make sure everything fits well within the constraints of an A4 size
+            paper.
+          </p>
         </div>
       </div>
     </div>
