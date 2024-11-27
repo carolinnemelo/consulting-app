@@ -9,7 +9,7 @@ export default async function Home() {
     return (
       <Main>
         <ReusableCard>
-          <PageTitle pageTitle="Update Profile" />
+          <PageTitle pageTitle="Not Found" />
           <p>Consultant not found. Please try again later.</p>
         </ReusableCard>
       </Main>

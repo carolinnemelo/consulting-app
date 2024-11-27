@@ -7,3 +7,5 @@ export * from "./button";
 export * from "./page-title";
 export * from "./title-2";
 export * from "./sidebar";
+export * from "./hero";
+export * from "./h-titles";
