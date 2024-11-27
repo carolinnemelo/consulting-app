@@ -14,17 +14,17 @@ export function Sidebar() {
   const statusLinks = buttons.status.map((button) => {
     return <Button label={button} type="button" align="start" />;
   });
-  
+
   return (
-    <div className="outline-dashed py-4">
-      <div className="px-1 py-2">
+    <nav className="bg-red-400 py-4 pr-2 h-full">
+      <div className="py-2">
         <TitleThree titleTwo="Filters" />
         <div className="ml-3 space-y-0">{languagesLinks}</div>
       </div>
-      <div className="px-1 py-2">
+      <div className="py-2">
         <TitleThree titleTwo="Status" />
         <div className="ml-3 space-y-0">{statusLinks}</div>
       </div>
-    </div>
+    </nav>
   );
 }

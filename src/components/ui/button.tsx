@@ -1,4 +1,3 @@
-import { Ghost } from "lucide-react";
 import { ButtonShad } from "../shad";
 
 type Props = {
