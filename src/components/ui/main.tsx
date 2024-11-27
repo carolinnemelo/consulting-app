@@ -5,5 +5,5 @@ type Props = {
 }
 
 export function Main({children}: Props) {
-  return <main className="container mx-auto flex justify-between">{children}</main>
+  return <main className=" flex justify-between">{children}</main>
 }
