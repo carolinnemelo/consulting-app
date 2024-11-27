@@ -7,3 +7,4 @@ export * from "./title-2";
 export * from "./sidebar";
 export * from "./h-titles";
 export * from "./pages";
+export * from "./carousel-items";
