@@ -10,8 +10,10 @@ export function A4Page() {
   return (
     <div className="a4-page">
       <div className="grid grid-cols-4 grid-rows-12 h-full gap-3">
-        <div className="bg-primary col-start-1 col-end-5 row-start-1 h-[50px]"></div>
-        <div className="col-start-1 row-start-1 mt-16 h-full text-start px-4 space-y-3">
+        <div className="text-primary-foreground bg-primary col-start-1 col-end-5 row-start-1 h-[50px] text-xl pr-4 flex items-center justify-end">
+        &lt;/salt&gt;
+        </div>
+        <aside className="col-start-1 row-start-1 mt-16 h-full text-start px-4 space-y-3">
           <Image
             src="/she-ra.png"
             height={170}
@@ -21,8 +23,8 @@ export function A4Page() {
           />
           <h2 className="text-sm font-bold uppercase">Technical Skills</h2>
           <AsideTitles />
-        </div>
-        <div className="col-start-2 col-span-3">
+        </aside>
+        <article className="col-start-2 col-span-3">
           <h1 className="text-3xl font-bold mb-4">A4 Page Title</h1>
           <p className="text-base mb-2">
             This is a sample content of the A4 page. You can add whatever
@@ -32,7 +34,7 @@ export function A4Page() {
             Make sure everything fits well within the constraints of an A4 size
             paper.
           </p>
-        </div>
+        </article>
       </div>
     </div>
   );
@@ -65,13 +67,6 @@ export function AsideTitles() {
   });
   return asideContent;
 }
-
-// export function AsideContent() {
-
-//   return(
-//     <HTwo></HTwo>
-//   )
-// }
 
 const sheeraData = [
   {
