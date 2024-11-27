@@ -24,8 +24,9 @@ export function A4Page() {
           <h2 className="text-sm font-bold uppercase">Technical Skills</h2>
           <AsideTitles />
         </aside>
-        <article className="col-start-2 col-span-3 space-y-2 pr-4">
+        <article className="col-start-2 col-span-3 pr-6 text-justify space-y-3">
        <ArticleGeneralInfo />
+       <ArticleEducation />
         </article>
       </div>
     </div>
@@ -40,7 +41,7 @@ export function ArticleGeneralInfo() {
           <h4 key={index} className="text-[27px] capitalize font-extrabold">
             {object.name}
           </h4>
-          <h3 key={index + 1} className="text-base space-y-0">
+          <h3 key={index + 1} className="text-[12px] space-y-0">
             {object.summary}
           </h3>
         </>
@@ -55,26 +56,51 @@ export function AsideTitles() {
       if (!object.skills) {
         return "";
       }
-      return object.skills.map((skill, indexValue) => {
+      return object.skills.map((skill) => {
         const content = skill.items.map((item) => {
           return (
-            <h4 key={index} className="text-[12px]">
+            <h4 key={item} className="text-[12px]">
               {item}
             </h4>
           );
         });
         return (
-          <article>
-            <h3 key={indexValue} className="text-[12px] font-semibold">
+          <section>
+            <h3 key={skill.category} className="text-[12px] font-semibold">
               {skill.category}
             </h3>
             {content}
-          </article>
+          </section>
         );
       });
     }
   });
   return asideContent;
+}
+
+export function ArticleEducation() {
+  return sheeraData.map((object, index) => {
+    if (object.section === "Education") {
+      if (!object.education) {
+        return "";
+      }
+      return object.education.map((degree) => {
+        return (
+          <section key={degree.degree} >
+            <h4 key={degree.school} className="text-base capitalize font-extrabold">
+              {degree.degree} | {degree.school}
+            </h4>
+            <p key={degree.year} className="text-[12px]">
+              {degree.year}
+            </p>
+            <p key={degree.details} className="text-[12px] ">
+              {degree.details}
+            </p>
+          </section>
+        );
+      });
+    }
+  });
 }
 
 const sheeraData = [
@@ -134,7 +160,8 @@ const sheeraData = [
     section: "Education",
     education: [
       {
-        degree: "Full-stack Magic & Code - School of Bright Moon",
+        school: "School of Bright Moon",
+        degree: "Full-stack Magic & Code",
         year: "2023",
         details:
           "Intensive three-moon training program focused on full stack spell-casting and web development. Emphasis on TDD (Test-Driven Defense), team enchantments, and applied magical coding. Gained deep knowledge of EtherealScript, CastleForge, and hands-on experience with DockerDragon and Moonlight Cloud (SkyRealm).",
