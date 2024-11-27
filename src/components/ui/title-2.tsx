@@ -2,6 +2,10 @@ type Props = {
   titleTwo: string
 }
 
-export function TitleTwo({titleTwo}:Props){
-  return <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">{titleTwo}</h2>
+export function TitleThree({ titleTwo: titleThree }: Props) {
+  return (
+    <h2 className="mb-2 px-4 text-md font-semibold tracking-tight">
+      {titleThree}
+    </h2>
+  );
 }
