@@ -10,8 +10,8 @@ export function A4Page() {
   return (
     <div className="a4-page">
       <div className="grid grid-cols-4 grid-rows-12 h-full gap-3">
-        <div className="text-primary-foreground bg-primary col-start-1 col-end-5 row-start-1 h-[50px] text-xl pr-4 flex items-center justify-end">
-        &lt;/salt&gt;
+        <div className="text-primary bg-muted col-start-1 col-end-5 row-start-1 h-[50px] text-xl pr-4 flex items-center justify-end">
+          &lt;/salt&gt;
         </div>
         <aside className="col-start-1 row-start-1 mt-16 h-full text-start px-4 space-y-3">
           <Image
@@ -24,20 +24,29 @@ export function A4Page() {
           <h2 className="text-sm font-bold uppercase">Technical Skills</h2>
           <AsideTitles />
         </aside>
-        <article className="col-start-2 col-span-3">
-          <h1 className="text-3xl font-bold mb-4">A4 Page Title</h1>
-          <p className="text-base mb-2">
-            This is a sample content of the A4 page. You can add whatever
-            content you need here.
-          </p>
-          <p className="text-base">
-            Make sure everything fits well within the constraints of an A4 size
-            paper.
-          </p>
+        <article className="col-start-2 col-span-3 space-y-2 pr-4">
+       <ArticleGeneralInfo />
         </article>
       </div>
     </div>
   );
+}
+
+export function ArticleGeneralInfo() {
+  return sheeraData.map((object, index) => {
+    if (object.section === "General Information") {
+      return (
+        <>
+          <h4 key={index} className="text-[27px] capitalize font-extrabold">
+            {object.name}
+          </h4>
+          <h3 key={index + 1} className="text-base space-y-0">
+            {object.summary}
+          </h3>
+        </>
+      );
+    }
+  });
 }
 
 export function AsideTitles() {
@@ -72,8 +81,6 @@ const sheeraData = [
   {
     section: "General Information",
     name: "Sheera of Etheria",
-    title: "Full-stack Developer & Defender of the Code",
-    location: "Bright Moon, Etheria",
     summary:
       "Full-stack developer specializing in powerful frameworks and ancient runes. With a background in mystical engineering, Sheera blends magic and technology to solve the most challenging problems. Passionate about empowering her allies, she thrives in collaborative, Agile settings.",
   },
