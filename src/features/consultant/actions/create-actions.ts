@@ -2,9 +2,10 @@
 
 import { consultantFeature } from "@/features";
 import { revalidatePath } from "next/cache";
+import { State } from "../logic";
 
 export async function createConsultant(prevState: State, formData: FormData) {
-  const validatedFields = consultantFeature.service.validateFields(formData)
+  const validatedFields = await consultantFeature.service.validateFields(formData)
 
   if (!validatedFields.success) {
     return {

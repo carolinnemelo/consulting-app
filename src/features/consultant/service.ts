@@ -1,8 +1,8 @@
-import { db, consultantsTable, ConsultantInsert, ConsultantUpdate } from "@/db";
+import { consultantsTable, ConsultantInsert, Db } from "@/db";
 import { eq } from "drizzle-orm";
-import { date } from "drizzle-orm/mysql-core";
+import { createConsultantSchema } from "./logic";
 
-export function createService() {
+export function createService(db: Db) {
   return {
     
     async getAll() {
@@ -54,8 +54,8 @@ export function createService() {
     },
 
 
-    async validateFields() {
-      createConsultantSchema.safeParse({
+    async validateFields(formData: FormData) {
+      const validatedFields = createConsultantSchema.safeParse({
         firstName: formData.get("firstName"),
         lastName: formData.get("lastName"),
         email: formData.get("email"),
@@ -70,6 +70,7 @@ export function createService() {
         year: formData.get("year"),
         details: formData.get("details"),
       });
+      return validatedFields;
     }
   };
 }
