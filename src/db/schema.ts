@@ -7,10 +7,6 @@ export const consultantsTable = pgTable("consultants", {
   lastName: varchar().notNull(),
   email: varchar().notNull(), 
   bio: varchar().notNull(),
-  // linkedinUrl: varchar(),
-  // phone: varchar(), 
-  // dynamicFields: json(),
-  // status: varchar().notNull(),
   createdAt: timestamp().defaultNow().notNull(),
   updatedAt: timestamp().defaultNow().notNull(),
 });
