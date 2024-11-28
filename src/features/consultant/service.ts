@@ -2,10 +2,10 @@ import { consultantsTable, ConsultantInsert, db } from "@/db";
 import { eq } from "drizzle-orm";
 import { createConsultantSchema } from "./logic";
 import { sheeraData } from "./mockdata";
+import { array } from "zod";
 
 export function createService() { //add db as argument
   return {
-
     async getAll() {
       return await db.select().from(consultantsTable);
     },
@@ -29,7 +29,9 @@ export function createService() { //add db as argument
         throw new Error("Consultant already exist. Please, try another email.");
       }
       const { firstName, lastName, email, bio } = consultant;
-      await db.insert(consultantsTable).values({ firstName, lastName, email, bio });
+      await db
+        .insert(consultantsTable)
+        .values({ firstName, lastName, email, bio });
     },
 
     async validateFields(formData: FormData) {
@@ -39,20 +41,22 @@ export function createService() { //add db as argument
         email: formData.get("email"),
         bio: formData.get("bio"),
         generalItems: formData.get("generalItems"),
-        backendItems: formData.get("backendItems"), 
-        frontendItems: formData.get("frontendItems"), 
-        toolsItems:  formData.get("toolsItems"),
-        socialItems:  formData.get("socialItems"),
-        school:  formData.get("school"),
-        degree:  formData.get("degree"),
+        backendItems: formData.get("backendItems"),
+        frontendItems: formData.get("frontendItems"),
+        toolsItems: formData.get("toolsItems"),
+        socialItems: formData.get("socialItems"),
+        school: formData.get("school"),
+        degree: formData.get("degree"),
         year: formData.get("year"),
         details: formData.get("details"),
       });
       return validatedFields;
     },
 
-    async getCV() {
-      return sheeraData
-    }
+    async getCV(name: string) {
+      if (name === "sheera") {
+        return sheeraData;
+      }
+    },
   };
 }

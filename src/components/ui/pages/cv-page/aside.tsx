@@ -1,4 +1,4 @@
-export function AsideTitles({consultantData}:any) {
+export function AsideTitles({ consultantData }: any) {
   const asideContent = consultantData.map((object) => {
     if (object.section === "Technical Skills") {
       if (!object.skills) {
