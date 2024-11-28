@@ -1,7 +1,7 @@
 import { db, consultantsTable, ConsultantInsert } from "@/db";
 import { eq } from "drizzle-orm";
 import { createConsultantSchema } from "./logic";
-import { dianaPrinceData, hermioneGrangerData, patrickData, sheeraData, shrekData, tonyStarkData } from "./mockdata";
+import { dianaPrinceData, hermioneGrangerData, sheeraData } from "./mockdata";
 
 export function createService() {
   return {

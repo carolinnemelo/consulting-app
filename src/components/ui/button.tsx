@@ -4,7 +4,7 @@ type Props = {
   label: string;
   type: "button" | "submit" | "reset";
   align?: "start" | "center" | "end";
-  variant: boolean;
+  variant?: boolean;
 };
 
 export function Button({ label, type, align, variant }: Props) {
