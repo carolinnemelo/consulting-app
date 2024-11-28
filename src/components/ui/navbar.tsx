@@ -5,8 +5,8 @@ import { NavbarContent, Navbar as NavbarNext, NavbarBrand, NavbarItem } from "@n
 
 const NavItems = [
   { name: "Home", href: "/" },
-  { name: "Profile", href: "/my-profile" },
-  { name: "CV", href: "/my-cv" },
+  { name: "Add Consultant", href: "/new-consultant" },
+  { name: "CV", href: "/cv" },
   { name: "Consultants", href: "/consultants" },
   { name: "Update", href: "/update-profile" },
 ];

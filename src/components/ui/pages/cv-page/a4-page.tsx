@@ -24,7 +24,7 @@ export function A4Page() {
           <h2 className="text-sm font-bold uppercase">Technical Skills</h2>
           <AsideTitles />
         </aside>
-        <article className="col-start-2 col-span-3 pr-6 space-y-3">
+        <article className="col-start-2 col-span-3 pr-6 space-y-3 -mt-6">
           <ArticleGeneralInfo />
           <h4 className="text-base font-extrabold uppercase">
             Education & Training
