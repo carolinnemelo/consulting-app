@@ -13,7 +13,7 @@ export function A4Page() {
         <div className="text-primary bg-muted col-start-1 col-end-5 row-start-1 h-[50px] text-xl pr-4 flex items-center justify-end">
           &lt;/salt&gt;
         </div>
-        <aside className="col-start-1 row-start-1 mt-16 h-full text-start px-4 space-y-3">
+        <aside className="col-start-1 row-start-1 row-end-13 pt-16 h-full text-start px-4 bg-muted space-y-3">
           <Image
             src="/she-ra.png"
             height={170}
@@ -26,7 +26,13 @@ export function A4Page() {
         </aside>
         <article className="col-start-2 col-span-3 pr-6 space-y-3">
           <ArticleGeneralInfo />
+          <h4 className="text-base font-extrabold uppercase">
+            Education & Training
+          </h4>
           <ArticleEducation />
+          <h4 className="text-base font-extrabold uppercase">
+            Education & Training
+          </h4>
           <ArticleExperience />
         </article>
       </div>
@@ -83,20 +89,17 @@ export function AsideTitles() {
 }
 
 export function ArticleEducation() {
-  return sheeraData.map((object, index) => {
+  return sheeraData.map((object) => {
     if (object.section === "Education") {
       if (!object.education) {
         return "";
       }
       return object.education.map((degree) => {
         return (
-          <section key={"education"}>
-            <h4
-              key={degree.school}
-              className="text-base font-extrabold uppercase"
-            >
+          <section key={`sectionEducation${degree.degree}`}>
+            <p key={`${degree.degree}`} className="text-[12px] font-extrabold">
               {degree.degree} | {degree.school}
-            </h4>
+            </p>
             <p key={degree.year} className="text-[12px] text-justify">
               {degree.year}
             </p>
@@ -118,13 +121,10 @@ export function ArticleExperience() {
       }
       return object.experience.map((experience) => {
         return (
-          <section key={"experience"}>
-            <h4
-              key={experience.title}
-              className="text-base font-extrabold uppercase"
-            >
+          <section key={`sectionExperience${experience.company}`}>
+            <p key={experience.company} className="text-[12px] font-extrabold">
               {experience.title} | {experience.company}
-            </h4>
+            </p>
             <p key={experience.year} className="text-[12px] text-justify">
               {experience.year}
             </p>
@@ -143,7 +143,7 @@ const sheeraData = [
     section: "General Information",
     name: "Sheera of Etheria",
     summary:
-      "Full-stack developer specializing in powerful frameworks and ancient runes. With a background in mystical engineering, Sheera blends magic and technology to solve the most challenging problems. Passionate about empowering her allies, she thrives in collaborative, Agile settings.",
+      "I am a passionate and resourceful professional with a unique ability to merge creativity and strategy to deliver impactful solutions. Drawing on my background in mystical engineering, I approach every challenge with a blend of innovation, adaptability, and determination. I thrive in collaborative environments where I can empower teams, foster growth, and drive projects toward success. My commitment to excellence and continuous improvement ensures that I consistently deliver results that exceed expectations. I am eager to bring my skills and energy to a team where I can make a meaningful difference and contribute to shared goals.",
   },
   {
     section: "Technical Skills",
