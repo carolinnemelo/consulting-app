@@ -4,9 +4,10 @@ type Props = {
   label: string;
   type: "button" | "submit" | "reset";
   align?: "start" | "center" | "end";
+  variant: boolean;
 };
 
-export function Button({ label, type, align }: Props) {
+export function Button({ label, type, align, variant }: Props) {
   let alignText;
   if (align === "start") {
     alignText = "justify-start";
@@ -21,7 +22,7 @@ export function Button({ label, type, align }: Props) {
   return (
     <div className="flex mt-4">
       <ButtonShad
-        variant="ghost"
+        variant={variant ? "default" : "ghost"}
         className={`${alignText} flex-grow`}
         type={type}
         size="sm"

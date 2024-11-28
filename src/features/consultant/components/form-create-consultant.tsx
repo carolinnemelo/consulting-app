@@ -26,40 +26,19 @@ export function FormCreateConsultant() {
           <Input typeOfInput="text" label="Bio" nameOfInput="bio" />
         </article>
       </section>
-      <section className="flex flex-col gap-3 py-2" key="technicalSkills">
-        <HThree>Technical Skills</HThree>
-        <Input typeOfInput="text" label="General" nameOfInput="generalItems" />
-        <Input typeOfInput="text" label="Backend" nameOfInput="backendItems" />
-        <Input
-          typeOfInput="text"
-          label="Frontend"
-          nameOfInput="frontendItems"
-        />
-        <Input typeOfInput="text" label="Tools" nameOfInput="toolsItems" />
-        <Input typeOfInput="text" label="Social" nameOfInput="socialItems" />
-      </section>
+      <Button variant={true} label="Save" type="submit" />
 
-      <section className="flex flex-col gap-3 py-2" key="education">
-        <HThree>Education</HThree>
-        <Input typeOfInput="text" label="School" nameOfInput="school" />
-        <Input typeOfInput="text" label="Degree" nameOfInput="degree" />
-        <Input typeOfInput="text" label="Year" nameOfInput="year" />
-        <Input typeOfInput="text" label="Details" nameOfInput="details" />
-      </section>
-      {/*
-      <section className="flex flex-col gap-3 py-2" key="workExperience">
-        <HThree>Work Experience</HThree>
-
-        <Input typeOfInput="text" label="Title" nameOfInput="title" />
-        <Input typeOfInput="text" label="Company" nameOfInput="company" />
-        <Input typeOfInput="text" label="Year" nameOfInput="year" />
-        <Input typeOfInput="text" label="Details" nameOfInput="details" />
-      </section> */}
-      <Button label="Save" type="submit" />
       {errorMessages?.errors ? (
-        <pre>{JSON.stringify(errorMessages?.errors)}</pre>
+        <div className="text-red-500 text-sm py-2">
+          <p key={1}>{errorMessages.errors.firstName}</p>
+          <p key={2}>{errorMessages.errors.lastName}</p>
+          <p key={3}>{errorMessages.errors.email}</p>
+          <p key={4}>{errorMessages.errors.bio}</p>
+        </div>
       ) : (
-        ""
+        <div className="text-teal-500 text-sm py-2">
+          <p>New talent added.</p>
+        </div>
       )}
     </form>
   );
