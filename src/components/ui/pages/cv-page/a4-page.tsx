@@ -6,6 +6,7 @@ import {
   AsideTitles,
 } from ".";
 import { consultantFeature } from "@/features";
+
 export async function A4Page() {
   const consultantData = await consultantFeature.service.getCV("hermione")
   return (

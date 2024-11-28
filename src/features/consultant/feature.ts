@@ -1,4 +1,4 @@
-import { createService } from "./createService";
+import { createService } from "./service";
 
 export function createFeature() {
   const service = createService();

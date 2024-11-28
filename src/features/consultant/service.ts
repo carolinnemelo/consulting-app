@@ -1,17 +1,9 @@
-import { consultantsTable, ConsultantInsert, db } from "@/db";
+import { db, consultantsTable, ConsultantInsert } from "@/db";
 import { eq } from "drizzle-orm";
 import { createConsultantSchema } from "./logic";
-import {
-  dianaPrinceData,
-  hermioneGrangerData,
-  patrickData,
-  sheeraData,
-  shrekData,
-  tonyStarkData,
-} from "./mockdata";
-import { array } from "zod";
+import { dianaPrinceData, hermioneGrangerData, patrickData, sheeraData, shrekData, tonyStarkData } from "./mockdata";
 
-export function createService() { //add db as argument
+export function createService() {
   return {
     async getAll() {
       return await db.select().from(consultantsTable);
@@ -67,17 +59,10 @@ export function createService() { //add db as argument
       if (name === "diana") {
         return dianaPrinceData;
       }
-      if (name === "tony") {
-        return tonyStarkData;
-      }
-      if (name === "shrek") {
-        return shrekData;
-      }
-      if (name === "patrick") {
-        return patrickData;
-      }
       if (name === "hermione") {
         return hermioneGrangerData;
+      } else{
+        return sheeraData
       }
     },
   };
