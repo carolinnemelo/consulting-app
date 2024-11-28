@@ -6,7 +6,6 @@ import { State } from "../logic";
 
 export async function createConsultant(prevState: State, formData: FormData) {
   const validatedFields = await consultantFeature.service.validateFields(formData)
-
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,

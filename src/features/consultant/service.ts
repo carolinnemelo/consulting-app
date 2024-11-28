@@ -1,10 +1,10 @@
-import { consultantsTable, ConsultantInsert, Db } from "@/db";
+import { consultantsTable, ConsultantInsert, db } from "@/db";
 import { eq } from "drizzle-orm";
 import { createConsultantSchema } from "./logic";
 
-export function createService(db: Db) {
+export function createService() { //add db as argument
   return {
-    
+
     async getAll() {
       return await db.select().from(consultantsTable);
     },
@@ -41,6 +41,7 @@ export function createService(db: Db) {
       let consultantGeneral;
       let consultantSkills;
       let consultantEducations;
+
       
       // const { firstName, lastName, email, bio, backendItems, generalItems } = consultant;
       await db.insert(consultantsTable).values({ ...consultant });
@@ -71,6 +72,6 @@ export function createService(db: Db) {
         details: formData.get("details"),
       });
       return validatedFields;
-    }
+    },
   };
 }
