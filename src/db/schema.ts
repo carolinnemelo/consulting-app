@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, varchar, timestamp, uuid, json, integer } from "drizzle-orm/pg-core";
+import { pgTable, varchar, timestamp, uuid } from "drizzle-orm/pg-core";
 
 export const consultantsTable = pgTable("consultants", {
   id: uuid().default(sql`gen_random_uuid()`),

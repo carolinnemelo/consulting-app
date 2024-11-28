@@ -9,10 +9,8 @@ export async function createConsultant(prevState: State, formData: FormData) {
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: "Missing Fields",
     };
   }
-
   try {
     const newConsultant = validatedFields.data;
     consultantFeature.service.create(newConsultant);

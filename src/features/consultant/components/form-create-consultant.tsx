@@ -4,9 +4,6 @@ import { Button, HThree, Input } from "@/components";
 import { useActionState } from "react";
 import { createConsultant } from "@/features";
 
-
-
-
 export function FormCreateConsultant() {
   const initialState = { message: null, errors: {} };
   const [errorMessages, formAction] = useActionState(createConsultant, initialState); 
