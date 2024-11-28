@@ -1,18 +1,18 @@
 "use client";
 
-// import { useActionState } from "react";
 import { Button, HThree, Input } from "@/components";
-// import { createConsultant } from "@/features";
+import { useActionState } from "react";
+import { createConsultant } from "@/features";
 
 
 
 
 export function FormCreateConsultant() {
   const initialState = { message: null, errors: {} };
-  // const [errorMessages, formAction] = useActionState(createConsultant, initialState); // I do not understand this error
+  const [errorMessages, formAction] = useActionState(createConsultant, initialState); 
 
   return (
-    <form action="">
+    <form action={formAction}>
       <section className="flex flex-col gap-3 py-2" key="generalInformation">
         <HThree>General Information</HThree>
         <article>
@@ -25,7 +25,8 @@ export function FormCreateConsultant() {
           <Input typeOfInput="email" label="Email" nameOfInput="email" />
           <Input typeOfInput="text" label="Bio" nameOfInput="bio" />
         </article>
-      </section>
+       </section>
+      {/*
       <section className="flex flex-col gap-3 py-2" key="technicalSkills">
         <HThree>Technical Skills</HThree>
 
@@ -54,13 +55,13 @@ export function FormCreateConsultant() {
         <Input typeOfInput="text" label="Company" nameOfInput="company" />
         <Input typeOfInput="text" label="Year" nameOfInput="year" />
         <Input typeOfInput="text" label="Details" nameOfInput="details" />
-      </section>
+      </section> */}
       <Button label="Save" type="submit" />
-      {/* {errorMessages?.errors ? (
+      {errorMessages?.errors ? (
         <pre>{JSON.stringify(errorMessages?.errors)}</pre>
       ) : (
         ""
-      )} */}
+      )}
     </form>
-  );
+  )
 }

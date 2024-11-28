@@ -6,7 +6,7 @@ export const consultantsTable = pgTable("consultants", {
   firstName: varchar().notNull(),
   lastName: varchar().notNull(),
   email: varchar().notNull(), 
-  // skills: varchar().notNull(),
+  bio: varchar().notNull(),
   // summary: varchar().notNull(),
   // education: json().notNull(),
   // workExperience: json().notNull(), 
