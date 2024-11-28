@@ -25,29 +25,28 @@ export function FormCreateConsultant() {
           <Input typeOfInput="email" label="Email" nameOfInput="email" />
           <Input typeOfInput="text" label="Bio" nameOfInput="bio" />
         </article>
-       </section>
+      </section>
       <section className="flex flex-col gap-3 py-2" key="technicalSkills">
         <HThree>Technical Skills</HThree>
-
         <Input typeOfInput="text" label="General" nameOfInput="generalItems" />
         <Input typeOfInput="text" label="Backend" nameOfInput="backendItems" />
-        {/* <Input
+        <Input
           typeOfInput="text"
           label="Frontend"
           nameOfInput="frontendItems"
-          />
+        />
         <Input typeOfInput="text" label="Tools" nameOfInput="toolsItems" />
-        <Input typeOfInput="text" label="Social" nameOfInput="socialItems" /> */}
+        <Input typeOfInput="text" label="Social" nameOfInput="socialItems" />
       </section>
-          {/*
+
       <section className="flex flex-col gap-3 py-2" key="education">
         <HThree>Education</HThree>
-
         <Input typeOfInput="text" label="School" nameOfInput="school" />
         <Input typeOfInput="text" label="Email" nameOfInput="degree" />
         <Input typeOfInput="text" label="Year" nameOfInput="year" />
         <Input typeOfInput="text" label="Details" nameOfInput="details" />
       </section>
+      {/*
       <section className="flex flex-col gap-3 py-2" key="workExperience">
         <HThree>Work Experience</HThree>
 
@@ -63,5 +62,5 @@ export function FormCreateConsultant() {
         ""
       )}
     </form>
-  )
+  );
 }
