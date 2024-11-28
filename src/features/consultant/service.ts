@@ -37,8 +37,8 @@ export function createService() {
       if (existingConsultant) {
         throw new Error("Consultant already exist. Please, try another email.");
       }
-      const { firstName, lastName, email, bio } = consultant;
-      await db.insert(consultantsTable).values({ firstName, lastName, email, bio });
+      // const { firstName, lastName, email, bio, backendItems, generalItems } = consultant;
+      await db.insert(consultantsTable).values({ ...consultant });
     },
 
     async update({ id, ...consultant }: any) {

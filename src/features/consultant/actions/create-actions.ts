@@ -43,6 +43,8 @@ export type State = {
     lastName?: string[] | undefined;
     email?: string[] | undefined;
     bio?: string[] | undefined;
+    generalItems?: string[] | undefined;
+    backendItems?: string[] | undefined;
   };
   message?: string | null;
 };
@@ -53,6 +55,8 @@ export async function createConsultant(prevState: State, formData: FormData) {
     lastName: formData.get("lastName"),
     email: formData.get("email"),
     bio: formData.get("bio"),
+    generalItems: formData.get("generalItems"),
+    backendItems: formData.get("backendItems"),
   });
 
   if (!validatedFields.success) {
