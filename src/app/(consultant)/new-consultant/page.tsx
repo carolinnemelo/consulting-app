@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Main>
       <ReusableCard>
-        <PageTitle pageTitle="Profile" />
+        <PageTitle pageTitle="Add Consultant" />
         <FormCreateConsultant />
       </ReusableCard>
     </Main>

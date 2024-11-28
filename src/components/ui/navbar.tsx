@@ -8,7 +8,7 @@ const NavItems = [
   { name: "Add Consultant", href: "/new-consultant" },
   { name: "CV", href: "/cv" },
   { name: "Consultants", href: "/consultants" },
-  { name: "Update", href: "/update-profile" },
+  // { name: "Update", href: "/update-profile" },
 ];
 
 export function Navbar() {
