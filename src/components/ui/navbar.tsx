@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { NavMenuItems } from "./nav-items";
 import Image from "next/image";
-import { HOne } from "./h-titles";
-import { useRef, useState } from "react";
+import { NavbarContent, Navbar as NavbarNext, NavbarBrand, NavbarItem } from "@nextui-org/navbar";
 
 const NavItems = [
   { name: "Home", href: "/" },
@@ -14,7 +13,7 @@ const NavItems = [
 
 export function Navbar() {
   return (
-    <nav className="absolute border-b top-0 z-20 w-screen bg-background">
+    <nav className="sticky border-b top-0 z-20 w-screen bg-background">
       <div className="flex h-14 items-center justify-between px-4">
         <Link href="/" className="flex justify-between align-middle text-lg font-semibold gap-1">
           <Image src="/logo.png" height={36} width={35} alt="Logo" />
