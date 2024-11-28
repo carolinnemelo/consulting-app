@@ -13,16 +13,16 @@ const footerItems = [
 
 export default function Footer() {
   return (
-    <footer className="p-4 bg-background md:p-8 lg:p-10">
-      <div className="mx-auto max-w-screen-xl text-center">
+    <footer className="p-4 md:p-8 lg:p-10 bg-muted">
+      <div className="mx-auto max-w-screen-xl text-center space-y-2">
         <Link
           href="/"
-          className="flex items-center justify-center align-middle text-lg font-semibold gap-2"
+          className="flex items-center justify-center align-middle font-semibold gap-2"
         >
           <Image src="/logo.png" height={36} width={35} alt="Logo" />
           <HOne>ConsultHub</HOne>
         </Link>
-        <p className="my-6 text-muted-foreground">
+        <p className="my-6 text-sm text-muted-foreground">
           A modern platform for workforce and talent management, built for
           businesses looking to simplify and succeed.
         </p>

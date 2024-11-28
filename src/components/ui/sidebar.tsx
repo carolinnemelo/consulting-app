@@ -15,7 +15,7 @@ export function Sidebar() {
   });
 
   return (
-    <nav className="bg-red-400 py-4 pr-2 h-full">
+    <nav className="border-r py-4 pr-2 h-full">
       <div className="py-2">
         <TitleThree titleThree="Filters" />
         <div className="ml-3 space-y-0">{languagesLinks}</div>
