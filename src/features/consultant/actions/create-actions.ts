@@ -33,21 +33,52 @@ const createConsultantSchema = z.object({
   )
   .refine(
     (arr) => arr.length > 0,
-    "General items must have at least one entry"
+    "Backend items must have at least one entry"
   ),
+  frontendItems: z
+  .string()
+  .transform((value) =>
+    value
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item.length > 0)
+  )
+  .refine(
+    (arr) => arr.length > 0,
+    "Frontend items must have at least one entry"
+  ),
+  toolsItems: z
+  .string()
+  .transform((value) =>
+    value
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item.length > 0)
+  )
+  .refine(
+    (arr) => arr.length > 0,
+    "Tools items must have at least one entry"
+  ),
+  socialItems: z
+  .string()
+  .transform((value) =>
+    value
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item.length > 0)
+  )
+  .refine(
+    (arr) => arr.length > 0,
+    "Social items must have at least one entry"
+  ),
+  school: z.string().trim().min(1, "Can not be empty"),
+  degree: z.string().trim().min(1, "Can not be empty"),
+  year: z.string().trim().min(1, "Can not be empty"),
+  details: z.string().trim().min(1, "Can not be empty"),
 });
 
-export type State = {
-  errors?: {
-    firstName?: string[] | undefined;
-    lastName?: string[] | undefined;
-    email?: string[] | undefined;
-    bio?: string[] | undefined;
-    generalItems?: string[] | undefined;
-    backendItems?: string[] | undefined;
-  };
-  message?: string | null;
-};
+export type State = z.infer<typeof createConsultantSchema>
+
 
 export async function createConsultant(prevState: State, formData: FormData) {
   const validatedFields = createConsultantSchema.safeParse({
@@ -56,7 +87,14 @@ export async function createConsultant(prevState: State, formData: FormData) {
     email: formData.get("email"),
     bio: formData.get("bio"),
     generalItems: formData.get("generalItems"),
-    backendItems: formData.get("backendItems"),
+    backendItems: formData.get("backendItems"), 
+    frontendItems: formData.get("frontendItems"), 
+    toolsItems:  formData.get("toolsItems"),
+    socialItems:  formData.get("socialItems"),
+    school:  formData.get("school"),
+    degree:  formData.get("degree"),
+    year: formData.get("year"),
+    details: formData.get("details"),
   });
 
   if (!validatedFields.success) {

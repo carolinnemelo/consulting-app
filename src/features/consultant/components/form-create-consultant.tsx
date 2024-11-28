@@ -42,7 +42,7 @@ export function FormCreateConsultant() {
       <section className="flex flex-col gap-3 py-2" key="education">
         <HThree>Education</HThree>
         <Input typeOfInput="text" label="School" nameOfInput="school" />
-        <Input typeOfInput="text" label="Email" nameOfInput="degree" />
+        <Input typeOfInput="text" label="Degree" nameOfInput="degree" />
         <Input typeOfInput="text" label="Year" nameOfInput="year" />
         <Input typeOfInput="text" label="Details" nameOfInput="details" />
       </section>
