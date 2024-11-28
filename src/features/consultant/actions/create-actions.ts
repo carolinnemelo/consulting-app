@@ -4,11 +4,37 @@ import { consultantFeature } from "@/features";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
+
+
 const createConsultantSchema = z.object({
   firstName: z.string().trim().min(1, "Can not be empty").trim(),
   lastName: z.string().trim().min(1, "Can not be empty"),
   email: z.string().trim().email("Insert Valid Email"),
   bio: z.string().max(500).min(4),
+  generalItems: z
+    .string()
+    .transform((value) =>
+      value
+        .split(",")
+        .map((item) => item.trim())
+        .filter((item) => item.length > 0)
+    )
+    .refine(
+      (arr) => arr.length > 0,
+      "General items must have at least one entry"
+    ),
+  backendItems: z
+  .string()
+  .transform((value) =>
+    value
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item.length > 0)
+  )
+  .refine(
+    (arr) => arr.length > 0,
+    "General items must have at least one entry"
+  ),
 });
 
 export type State = {

@@ -21,3 +21,4 @@ export const consultantsTable = pgTable("consultants", {
   createdAt: timestamp().defaultNow().notNull(),
   updatedAt: timestamp().defaultNow().notNull(),
 });
+
