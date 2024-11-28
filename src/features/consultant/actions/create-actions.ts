@@ -8,6 +8,7 @@ const createConsultantSchema = z.object({
   firstName: z.string().trim().min(1, "Can not be empty").trim(),
   lastName: z.string().trim().min(1, "Can not be empty"),
   email: z.string().trim().email("Insert Valid Email"),
+  bio: z.string().max(500).min(4),
 });
 
 export type State = {
@@ -15,6 +16,7 @@ export type State = {
     firstName?: string[] | undefined;
     lastName?: string[] | undefined;
     email?: string[] | undefined;
+    bio?: string[] | undefined;
   };
   message?: string | null;
 };
@@ -24,6 +26,7 @@ export async function createConsultant(prevState: State, formData: FormData) {
     firstName: formData.get("firstName"),
     lastName: formData.get("lastName"),
     email: formData.get("email"),
+    bio: formData.get("bio"),
   });
 
   if (!validatedFields.success) {

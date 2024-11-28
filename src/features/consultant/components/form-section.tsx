@@ -1,8 +1,5 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import { ButtonShad } from "@/components/shad";
-import Link from "next/link";
 import { HThree, Input } from "@/components";
 
 type Props = {

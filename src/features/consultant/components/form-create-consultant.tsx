@@ -23,7 +23,7 @@ export function FormCreateConsultant() {
           />
           <Input typeOfInput="text" label="Last Name" nameOfInput="lastName" />
           <Input typeOfInput="email" label="Email" nameOfInput="email" />
-          <Input typeOfInput="text" label="Bio" nameOfInput="summary" />
+          <Input typeOfInput="text" label="Bio" nameOfInput="bio" />
         </article>
       </section>
       <section className="flex flex-col gap-3 py-2" key="technicalSkills">
