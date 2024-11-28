@@ -1,17 +1,9 @@
-import { consultantsTable, ConsultantInsert, db } from "@/db";
+import { db, consultantsTable, ConsultantInsert } from "@/db";
 import { eq } from "drizzle-orm";
 import { createConsultantSchema } from "./logic";
-import {
-  dianaPrinceData,
-  hermioneGrangerData,
-  patrickData,
-  sheeraData,
-  shrekData,
-  tonyStarkData,
-} from "./mockdata";
-import { array } from "zod";
+import { sheeraData } from "./mockdata";
 
-export function createService() { //add db as argument
+export function createService() {
   return {
     async getAll() {
       return await db.select().from(consultantsTable);
