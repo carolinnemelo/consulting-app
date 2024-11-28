@@ -1,3 +1,4 @@
+import { consultantFeature } from "@/features";
 import Image from "next/image";
 import { ReactNode } from "react";
 
@@ -6,28 +7,26 @@ type Props = {
 };
 
 export default async function AllConsultants() {
+  const consultants = await consultantFeature.service.getAll()
   return (
-      <Grid>
-        {new Array(10).fill(0).map((_, index) => {
+      <div className="grid grid-cols-1 md:grid-cols-4">
+        {consultants.map((user, index) => {
           return (
-            <div key={index} className="container">
+            <div key={index} className="bg-black/80">
               <Image
                 src={`/sheera.png`}
                 height={170}
                 width={170}
                 alt="Logo"
                 className="justify-self-center"
-              />
+                />
+                <p>{user.firstName} {user.lastName}</p>
+                <p>{user.bio}</p>
+                
             </div>
           );
         })}
-      </Grid>
+      </div>
   );
 }
-export function Grid({ children }: Props) {
-  return (
-    <div className="flex flex-wrap">
-      {children}
-    </div>
-  );
-}
+

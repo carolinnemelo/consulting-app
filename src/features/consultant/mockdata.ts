@@ -206,7 +206,7 @@ export const dianaPrinceData = [
     section: "General Information",
     name: "Diana Prince",
     summary:
-      "A natural leader and skilled problem-solver, Diana combines ancient wisdom with modern technology to create impactful solutions. Her ability to unite teams and inspire collaboration ensures success even in the most challenging environments. Diana thrives at the intersection of tradition and innovation, using her Amazonian heritage to tackle modern-day challenges.",
+      "A natural leader and skilled problem-solver, I combine ancient wisdom with modern technology to create impactful solutions. Her ability to unite teams and inspire collaboration ensures success even in the most challenging environments. Diana thrives at the intersection of tradition and innovation, using her Amazonian heritage to tackle modern-day challenges.",
   },
   {
     section: "Technical Skills",
