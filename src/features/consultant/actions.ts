@@ -1,8 +1,10 @@
 "use server";
 
 import { consultantFeature } from "@/features";
-import { revalidatePath } from "next/cache";
+
 import { State } from "./logic";
+import { redirect } from "next/navigation";
+;
 
 export async function createConsultant(prevState: State, formData: FormData) {
   const validatedFields = await consultantFeature.service.validateFields(
@@ -19,5 +21,5 @@ export async function createConsultant(prevState: State, formData: FormData) {
   } catch (error) {
     return { success: false, message: error.message };
   }
-  revalidatePath("/my-profile");
+  redirect("/consultants");
 }

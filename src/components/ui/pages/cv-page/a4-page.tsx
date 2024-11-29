@@ -7,8 +7,11 @@ import {
 } from ".";
 import { consultantFeature } from "@/features";
 
-export async function A4Page() {
-  const name = "sheera";
+type Props = {
+  name: string;
+};
+
+export async function A4Page({ name }: Props) {
   const consultantData = await consultantFeature.service.getCV(name);
   return (
     <div className="">
